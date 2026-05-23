@@ -1,7 +1,7 @@
 package resources_test
 
 import (
-	"github.com/Innavoto/utem-terraform-provider/internal/provider"
+	"github.com/Innavoto/terraform-provider-utem/internal/provider"
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
 	"github.com/hashicorp/terraform-plugin-go/tfprotov6"
 )

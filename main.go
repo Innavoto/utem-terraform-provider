@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/Innavoto/utem-terraform-provider/internal/provider"
+	"github.com/Innavoto/terraform-provider-utem/internal/provider"
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
 )
 
