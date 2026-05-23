@@ -26,7 +26,7 @@ func New(baseURL, apiKey, tenantID string) *Client {
 		HTTPClient: &http.Client{
 			Timeout: 30 * time.Second,
 		},
-		UserAgent: "terraform-provider-utem/0.1.0",
+		UserAgent: "utem-terraform-provider/0.1.0",
 	}
 }
 

@@ -4,8 +4,8 @@ import (
 	"context"
 	"os"
 
-	"github.com/Innavoto/terraform-provider-utem/internal/client"
-	"github.com/Innavoto/terraform-provider-utem/internal/resources"
+	"github.com/Innavoto/utem-terraform-provider/internal/client"
+	"github.com/Innavoto/utem-terraform-provider/internal/resources"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"

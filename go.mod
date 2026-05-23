@@ -1,4 +1,4 @@
-module github.com/Innavoto/terraform-provider-utem
+module github.com/Innavoto/utem-terraform-provider
 
 go 1.22.0
 

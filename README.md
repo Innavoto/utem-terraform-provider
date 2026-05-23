@@ -87,9 +87,9 @@ resource "utem_webhook" "ci_webhook" {
 ## Building from Source
 
 ```bash
-git clone https://github.com/Innavoto/terraform-provider-utem.git
-cd terraform-provider-utem
-go build -o terraform-provider-utem
+git clone https://github.com/Innavoto/utem-terraform-provider.git
+cd utem-terraform-provider
+go build -o utem-terraform-provider
 ```
 
 ## Development
