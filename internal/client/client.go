@@ -107,7 +107,11 @@ type APIError struct {
 }
 
 func (e *APIError) Error() string {
-	return fmt.Sprintf("UTEM API error: %s %s returned %d: %s", e.Method, e.URL, e.StatusCode, e.Body)
+	body := e.Body
+	if len(body) > 200 {
+		body = body[:200] + "..."
+	}
+	return fmt.Sprintf("UTEM API error: %s returned %d: %s", e.Method, e.StatusCode, body)
 }
 
 func IsNotFound(err error) bool {

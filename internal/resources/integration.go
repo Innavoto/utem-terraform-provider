@@ -69,11 +69,13 @@ func (r *integrationResource) Schema(_ context.Context, _ resource.SchemaRequest
 			"config": schema.MapAttribute{
 				Description: "Arbitrary key-value configuration for the integration.",
 				Optional:    true,
+				Sensitive:   true,
 				ElementType: types.StringType,
 			},
 			"webhook_url": schema.StringAttribute{
 				Description: "Webhook URL for the integration.",
 				Optional:    true,
+				Sensitive:   true,
 			},
 			"description": schema.StringAttribute{
 				Description: "Description of the integration.",

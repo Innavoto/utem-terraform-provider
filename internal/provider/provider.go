@@ -3,6 +3,7 @@ package provider
 import (
 	"context"
 	"os"
+	"strings"
 
 	"github.com/Innavoto/terraform-provider-utem/internal/client"
 	"github.com/Innavoto/terraform-provider-utem/internal/resources"
@@ -71,6 +72,10 @@ func (p *utemProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 	if baseURL == "" {
 		baseURL = "https://utem.innavoto.com"
 	}
+	if !strings.HasPrefix(baseURL, "https://") {
+		resp.Diagnostics.AddError("Invalid base_url", "base_url must use HTTPS")
+		return
+	}
 
 	apiKey := os.Getenv("UTEM_API_KEY")
 	if !config.APIKey.IsNull() {
@@ -82,7 +87,8 @@ func (p *utemProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 		tenantID = config.TenantID.ValueString()
 	}
 	if tenantID == "" {
-		tenantID = "1"
+		resp.Diagnostics.AddError("Missing tenant_id", "tenant_id is required — set via provider config or UTEM_TENANT_ID env var")
+		return
 	}
 
 	c := client.New(baseURL, apiKey, tenantID)

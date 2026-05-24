@@ -1,2 +1,7 @@
 terraform-provider-utem
 *.exe
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+override.tf

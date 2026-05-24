@@ -3,6 +3,7 @@ package client
 import (
 	"context"
 	"fmt"
+	"net/url"
 )
 
 type Policy struct {
@@ -25,7 +26,9 @@ type PolicyList struct {
 func (c *Client) ListPolicies(ctx context.Context, category string) ([]Policy, error) {
 	path := "/api/v1/policies"
 	if category != "" {
-		path += "?category=" + category
+		params := url.Values{}
+		params.Set("category", category)
+		path += "?" + params.Encode()
 	}
 	var result PolicyList
 	if err := c.Get(ctx, path, &result); err != nil {
